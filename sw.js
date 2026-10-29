@@ -1,11 +1,11 @@
 // Service Worker: ทำให้ติดตั้งเป็นแอปได้ และเปิดหน้าเว็บได้เร็วขึ้น
 // ไม่ยุ่งกับคำสั่งที่ส่งไป Google Sheet (POST / script.google.com) เพื่อให้ข้อมูลสดเสมอ
 // แก้ไฟล์เว็บแล้วอยากให้เครื่องผู้ใช้โหลดใหม่ทันที: เปลี่ยนเลข VERSION ด้านล่าง
-var VERSION = "v1";
+var VERSION = "v2";
 var CACHE = "savings-" + VERSION;
 var SHELL = [
   "./", "index.html", "config.js", "gas-bridge.js", "pwa.js", "manifest.webmanifest",
-  "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"
+  "icons/icon-192.png", "icons/icon-512.png", "icons/maskable-192.png", "icons/maskable-512.png", "icons/apple-touch-icon.png"
 ];
 
 self.addEventListener("install", function (e) {
