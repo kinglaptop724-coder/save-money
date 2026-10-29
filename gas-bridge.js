@@ -79,6 +79,8 @@
     });
   }
 
+  window.logoutAccessKey = function () { try { localStorage.removeItem(KEY_NAME); } catch (e) {} };
+
   window.google = window.google || {};
   window.google.script = window.google.script || {};
   window.google.script.run = make(null, null);

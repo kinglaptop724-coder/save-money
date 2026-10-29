@@ -2,6 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="config.js"></script>
   <script src="gas-bridge.js"></script>
@@ -2553,6 +2554,15 @@
     @keyframes wlFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     @media (prefers-reduced-motion: reduce) { .wl-overlay *, .wl-card { animation: none !important; } .wl-drop, .wl-bg-coin { opacity: 0; } .wl-stack { opacity: 1; } }
   </style>
+<style id="logout-style">.side-logout-wrap{padding:6px 12px 0}.side-logout{width:100%;color:#ffe3e3;background:rgba(255,255,255,.12)}.side-logout:hover{background:rgba(255,90,90,.35);color:#fff}</style>
+<script>
+function logoutSystem(){
+  var go=function(){ if(window.logoutAccessKey) window.logoutAccessKey(); window._adminToken=null; location.reload(); };
+  if(window.Swal&&Swal.fire){
+    Swal.fire({title:"ออกจากระบบ?",text:"ระบบจะลบรหัสเข้าใช้งานที่จำไว้ในเครื่องนี้ ต้องกรอกรหัสใหม่เมื่อเข้าครั้งต่อไป",icon:"question",showCancelButton:true,confirmButtonText:"ออกจากระบบ",cancelButtonText:"ยกเลิก"}).then(function(r){ if(r.isConfirmed) go(); });
+  } else if(confirm("ออกจากระบบ?")) go();
+}
+</script>
 </head>
 <body>
   <div class="wl-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="wlTitle">
@@ -2703,6 +2713,7 @@
           </div>
       </div>
     </nav>
+    <div class="side-logout-wrap"><button type="button" class="side-link side-logout" onclick="logoutSystem()"><i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ</button></div>
     <div class="side-foot">
       <div class="side-art" aria-hidden="true">
         <svg class="pg" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg">
