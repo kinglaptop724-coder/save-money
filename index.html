@@ -5310,7 +5310,7 @@ function printTotalSummary() {
                 // ถ้ารหัสถูก -> ไปทำรายการต่อ (เรียกฟังก์ชันตัวจริง)
                 executeCarryForwardProcess();
             } else {
-                Swal.fire('รหัสผ่านไม่ถูกต้อง', 'คุณไม่มีสิทธิ์ดำเนินการนี้', 'error');
+                Swal.fire('รหัสผ่านไม่ถูกต้อง', (res && res.message) || 'คุณไม่มีสิทธิ์ดำเนินการนี้', 'error');
             }
         }).withFailureHandler(handleError).verifyAdminPassword(password);
     }
@@ -8007,7 +8007,7 @@ function requireAdminThen(actionFn, customText) {
                         window._adminToken = res.token || ''; // token ชั่วคราวจากเซิร์ฟเวอร์ ใช้แนบกับคำสั่งที่ต้องใช้สิทธิ์แอดมิน
                         actionFn();
                     } else {
-                        Swal.fire('รหัสผ่านผิด', 'คุณไม่มีสิทธิ์เข้าถึงเครื่องมือนี้', 'error');
+                        Swal.fire('รหัสผ่านผิด', (res && res.message) || 'คุณไม่มีสิทธิ์เข้าถึงเครื่องมือนี้', 'error');
                     }
                 })
                 .withFailureHandler(err => {
